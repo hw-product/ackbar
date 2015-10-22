@@ -1,0 +1,25 @@
+Configuration.new do
+  apply_nesting 'deep'
+  processing true
+  options do
+    notification_topics []
+    capabilities ['CAPABILITY_IAM']
+    tags do
+      creator ENV['USER']
+    end
+  end
+  nesting_bucket 'fission-infrastructure'
+  credentials do
+    provider :aws
+    aws_access_key_id ENV['AWS_ACCESS_KEY_ID']
+    aws_secret_access_key ENV['AWS_SECRET_ACCESS_KEY']
+    aws_region ENV['AWS_REGION']
+    aws_bucket_region ENV['AWS_REGION']
+    if(ENV['INFRA_ACCOUNT'] == 'EUCALYPTUS')
+      api_endpoint '192.168.2.72:8773'
+      euca_compat 'path'
+      ssl_enabled false
+    end
+#    aws_sts_role_arn 'arn:aws:iam::921689585014:role/fubar'
+  end
+end
