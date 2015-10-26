@@ -1,6 +1,6 @@
 SparkleFormation.new(:infrastructure).load(:base).overrides do
 
-  dynamic!(:ec2_instance, :yay) do
+  dynamic!(:ec2_instance, :yay_replace) do
     properties do
       key_name 'fission-infra'
       image_id 'ami-aa9a7999'
@@ -8,6 +8,6 @@ SparkleFormation.new(:infrastructure).load(:base).overrides do
     end
   end
 
-  outputs.node_address.value attr!(:yay_ec2_instance, 'PublicIp')
+  outputs.node_address.value attr!(:yay_replace_ec2_instance, 'PublicIp')
 
 end
