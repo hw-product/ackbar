@@ -1,7 +1,7 @@
 SparkleFormation.new(:infrastructure).load(:base).overrides do
 
-  dynamic!(:s3_bucket, :update_storage)
+  dynamic!(:s3_bucket, :update2_storage)
 
-  outputs.bucket_name.value ref!(:update_storage_s3_bucket)
+  outputs.bucket_name.value ref!(:update2_storage_s3_bucket)
 
 end
