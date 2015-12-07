@@ -1,4 +1,8 @@
 Configuration.new do
+  callbacks do
+    require ['sfn-parameters']
+    default 'parameters_infrastructure'
+  end
   apply_nesting 'deep'
   processing true
   options do
